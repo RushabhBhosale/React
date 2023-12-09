@@ -8,6 +8,10 @@ import Navbar from './Components/Navbar';
 import Counter from './Components/Counter';
 import Counter2 from './Components/6-12/Counter2';
 import UseEffect from './Components/6-12/UseEffect';
+import UseEffect2 from './Components/8-12/UseEffect2';
+import UseEffect3 from './Components/8-12/UseEffect3';
+import DynamicRouting from './Components/8-12/DynamicRouting';
+import UseEffect4 from './Components/8-12/UseEffect4';
 
 
 function App() {
@@ -19,8 +23,12 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/counter' element={<Counter />} />
-        <Route path='/counter2' element={<Counter2 />}></Route>
-        <Route path='/useeffect' element={<UseEffect />}></Route>
+        <Route path='/counter2' element={<Counter2 />} />
+        <Route path='/use-effect' element={<UseEffect />} />
+        <Route path='/use-effect-2' element={<UseEffect2 />} />
+        <Route path='/use-effect-3' element={<UseEffect3 />} />
+        <Route path='/dynamic-routing' element={<DynamicRouting />} />
+        <Route path='/use-effect-4' element={<UseEffect4 />} />
       </Routes>
     </div>
   );

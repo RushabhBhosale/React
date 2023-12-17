@@ -1,36 +1,55 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const RegisterForm = () => {
+    const router = useNavigate();
 
-   const [userData, setUserData] = useState({name: "", email: "", password: ""});
-   console.log(userData, "UserData")
+    const [userData, setUserData] = useState({ name: "", email: "", password: "", confirmpassword: "" })
+    console.log(userData, "userData")
+    async function handleSubmit(e) {
+        e.preventDefault();
+        if (userData.name && userData.email && userData.password && userData.confirmpassword) {
+            if (userData.password === userData.confirmpassword) {
+                try {
 
-   function handleSubmit(e) {
-      e.preventDefault();
-      alert("Registration Completed..")
-      setUserData({name: "", email: "", password: ""})
-   }
+                    const response = { data: { success: true, messsage: "Registeration completed." } }
 
-   function handleChange(e) {
-      setUserData({ ...userData, [e.target.name]: e.target.value});
-   }
+                    if (response.data.success === true) {
+                        alert(response.data.messsage)
+                        setUserData({ name: "", email: "", password: "", confirmpassword: "" })
+                        router('/login-form')
+                    }
+                } catch (error) {
+                    console.log(error)
+                    alert(error.response.data.messsage)
+                }
+            } else {
+                alert("Password and Confirm Password not matched.")
+            }
+        } else {
+            alert("All fields are required.")
+        }
+    }
 
-
-  return (
-    <div>
-      <h1>Register</h1>
-
-      <form onSubmit={handleSubmit} >
-         <label>Name:</label><br />
-         <input type="text" required onChange={handleChange} name='name' value={userData.name} /><br />
-         <label>Email:</label><br />
-         <input type="email" required onChange={handleChange} name='email' value={userData.email} /><br />
-         <label>Password:</label><br />
-         <input type="password" required onChange={handleChange} name='password' value={userData.password} /><br />
-         <input type="submit" value="Register" />
-      </form>
-    </div>
-  )
+    function handleChange(e) {
+        setUserData({...userData, [e.target.name]: e.target.value });
+    }
+    return (
+        <div>
+            <h1>Register</h1>
+            <form onSubmit={handleSubmit}>
+                <label>Name :</label><br />
+                <input type='text' required onChange={handleChange} name="name" value={userData.name} /><br />
+                <label>Email :</label><br />
+                <input type='email' required onChange={handleChange} name='email' value={userData.email} /><br />
+                <label>Password</label><br />
+                <input type='password' required onChange={handleChange} name='password' value={userData.password} /><br />
+                <label>Confirm Password</label><br />
+                <input type='password' required onChange={handleChange} name='confirmpassword' value={userData.confirmpassword} /><br />
+                <input type='submit' value="Register" />
+            </form>
+        </div>
+    )
 }
 
-export default RegisterForm;
+export default RegisterForm

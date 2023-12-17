@@ -17,6 +17,7 @@ import MapObjects from './Components/9-12/MapObjects';
 import PropMaps from './Components/9-12/PropMaps';
 import StyledComponents from './Components/9-12/StyledComponents';
 import { useState } from 'react';
+import LoginForm from './Components/15-12/LoginForm';
 
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
         <Route path='/map-object' element={<MapObjects myStudentsData={students} />} />
         <Route path='/prop-map' element={<PropMaps lame={myName} myAge= "20" ChangeName={ChangeName} myStudents={["rushabh", "rohan", "jay"]}  />} />
         <Route path='/styled-components' element={<StyledComponents />} />
+        <Route path='/login-form' element={<LoginForm />} />
       </Routes>
     </div>
   );

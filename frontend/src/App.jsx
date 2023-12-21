@@ -18,6 +18,9 @@ import PropMaps from './Components/9-12/PropMaps';
 import StyledComponents from './Components/9-12/StyledComponents';
 import { useState } from 'react';
 import LoginForm from './Components/15-12/LoginForm';
+import ChildToParents from './Components/16-12/ChildToParents';
+import AllProducts from './Components/16-12/AllProducts';
+import SingleProduct from './Components/20-12/SingleProduct';
 
 
 function App() {
@@ -49,6 +52,11 @@ function App() {
         <Route path='/prop-map' element={<PropMaps lame={myName} myAge= "20" ChangeName={ChangeName} myStudents={["rushabh", "rohan", "jay"]}  />} />
         <Route path='/styled-components' element={<StyledComponents />} />
         <Route path='/login-form' element={<LoginForm />} />
+        <Route path='/child-parent' element={<ChildToParents />} />
+        <Route path='/all-products' element={<AllProducts />} />
+        <Route path='/single-product/:id' element={<SingleProduct/>}/>
+
+        
       </Routes>
     </div>
   );

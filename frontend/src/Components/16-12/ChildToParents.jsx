@@ -1,25 +1,29 @@
-import React, { useState } from 'react'
+import { useContext, useState } from "react"
+import { MyContext } from '../../Content/AuthContext'
 
-function ChildComponent({ ChangeValue }) {
-  return (
-    <input onChange={ChangeValue} />
-  )
+function ChildrenComponent({ ChangeValue }) {
+
+    return (
+        <input onChange={ChangeValue} />
+    )
 }
 
-const ChildToParents = () => {
+function ChildToParent() { 
+    const [myValue, setMyValue] = useState('')
 
-  const [value, setValue] = useState('');
-  function ChangeValue(e) {
-    setValue(e.target.value)
-  }
+    const { state } = useContext(MyContext)
 
+    
+    function ChangeValue(e) {
+        setMyValue(e.target.value)
+    }
 
-  return (
-    <div>
-      <h1>Typed value: {value}</h1>
-      <ChildComponent ChangeValue={ChangeValue} />
-    </div>
-  )
+    return (
+        <div>
+            <h1>Typed value : {myValue} , state = {state.test}</h1>
+            <ChildrenComponent ChangeValue={ChangeValue} />
+        </div>
+    )
 }
 
-export default ChildToParents
+export default ChildToParent

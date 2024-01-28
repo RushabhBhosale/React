@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import Homepage from './Components/Homepage';
@@ -21,6 +20,9 @@ import LoginForm from './Components/15-12/LoginForm';
 import ChildToParents from './Components/16-12/ChildToParents';
 import AllProducts from './Components/16-12/AllProducts';
 import SingleProduct from './Components/20-12/SingleProduct';
+import UseMemo from './Components/22-12/UseMemo';
+import UseCallBack from './Components/23-12/UseCallBack';
+import UseReducer from './Components/24-12/UseReducer';
 
 
 function App() {
@@ -55,8 +57,9 @@ function App() {
         <Route path='/child-parent' element={<ChildToParents />} />
         <Route path='/all-products' element={<AllProducts />} />
         <Route path='/single-product/:id' element={<SingleProduct/>}/>
-
-        
+        <Route path='/use-memo' element={<UseMemo />} />
+        <Route path='/use-callback' element={<UseCallBack />} />
+        <Route path='/use-reducer' element={<UseReducer />} />
       </Routes>
     </div>
   );
